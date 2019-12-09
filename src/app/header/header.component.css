@@ -1,0 +1,6 @@
+li {
+  border-right: 1px solid #ffffff;
+}
+li:last-child {
+  border: none;
+}

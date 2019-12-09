@@ -1,0 +1,19 @@
+input {
+  border: 1px solid #000000;
+  font-family: sans-serif, "Times New Roman", Times, serif;
+  font-size: 25px;
+}
+input:focus {
+  border: none;
+}
+input::placeholder {
+  padding-top: 5px;
+  font-family: sans-serif, "Times New Roman", Times, serif;
+  font-size: 25px;
+  font-weight: 500;
+}
+button {
+  font-family: sans-serif, "Times New Roman", Times, serif;
+  font-size: 25px;
+  border-radius: 0.5em;
+}

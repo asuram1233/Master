@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+
+.banner-class {
+  font: bold;
+  font-size: xx-large;
+}
+.banner-background {
+  background-color: yellow;
+  height: 70px;
+}
