@@ -10,6 +10,10 @@ export class BatchComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    // $(document).ready(function(){
+    //   $('[data-toggle="tooltip"]').tooltip();   
+    // });
   }
+  
 
 }

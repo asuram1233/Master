@@ -11,8 +11,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {}
   login(data) {
-    if (data.username === "admin" && data.password === "admin") {
-      this.router.navigate(["admin_dashboard"]);
+    if (data.username === "" && data.password === "") {
+      this.router.navigate(["admin"]);
     } else {
       alert("Please Enter Valid Credentials");
     }

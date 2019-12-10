@@ -1,6 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./header/header.component";
@@ -13,7 +12,8 @@ import { FormsModule } from "@angular/forms";
 import { InputTextModule } from "primeng/inputtext";
 import { AdminRoutingModule } from "./admin/admin-routing.module";
 import { AdminModule } from "./admin/admin.module";
-
+import { HttpClientModule } from '@angular/common/http'
+import { from } from 'rxjs';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +30,9 @@ import { AdminModule } from "./admin/admin.module";
     FormsModule,
     InputTextModule,
     AdminRoutingModule,
-    AdminModule
+    AdminModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

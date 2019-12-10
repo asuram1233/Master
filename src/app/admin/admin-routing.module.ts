@@ -4,13 +4,31 @@ import { AdminDashboardComponent } from "./admin-dashboard/admin-dashboard.compo
 import { BatchComponent } from "./batch/batch.component";
 import { AttendanceComponent } from "./attendance/attendance.component";
 import { ViewAllComponent } from "./view-all/view-all.component";
+import { Batch21Component } from './batch21/batch21.component';
+import { Batch22Component } from './batch22/batch22.component';
+import { Batch23Component } from './batch23/batch23.component';
+import { Batch24Component } from './batch24/batch24.component';
+import { AddNewBatchComponent } from './add-new-batch/add-new-batch.component';
 
 const routes: Routes = [
   {
-    path: "admin_dashboard",
+    path: "admin",
     component: AdminDashboardComponent,
     children: [
-      { path: "batch", component: BatchComponent },
+      {
+        path: "batch", component: BatchComponent,
+
+        children: [
+          { path: "batch21", component: Batch21Component },
+          { path: "batch22", component: Batch22Component },
+          { path: "batch23", component: Batch23Component },
+          { path: "batch24", component: Batch24Component },
+          { path: "addnewbatch", component: AddNewBatchComponent },
+
+
+        ]
+
+      },
       { path: "attendance", component: AttendanceComponent },
       { path: "view_all", component: ViewAllComponent }
     ]
@@ -21,4 +39,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AdminRoutingModule {}
+export class AdminRoutingModule { }

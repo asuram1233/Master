@@ -1,0 +1,44 @@
+<p>add-new-batch works!</p>
+<!--  -->
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h1 class="text-center text-success" style="margin-top: px;">New Batch</h1>
+
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="container-fluid ">
+                    <form #fo="ngForm" (ngSubmit)="userObj(fo.value)">
+                        <label for="fname" class="text-primary">Batch Name</label>
+                        <input type="text" id="h1" name="batchname" placeholder="Batch Name" ngModel #ref5="ngModel"
+                            required class="form-control">
+
+                        <div *ngIf="ref5.invalid && (ref5.dirty||ref5.touched)" class="alert alert-danger">
+                            <div *ngIf="ref5.errors?.required"> *this label is required</div>
+                        </div>
+                        <!-- <label for="fname" class="text-primary">Last Name</label>
+                        <input type="text" id="h1" name="LastName" placeholder="Last Name" ngModel #ref9="ngModel"
+                            required class="form-control ">
+                        <div *ngIf="ref9.invalid && (ref9.dirty||ref9.touched)" class="alert alert-danger">
+                            <div *ngIf="ref9.errors?.required"> *this label is required</div>
+                        </div> -->
+
+
+                        
+                        <button type="submit" [disabled]="fo.invalid" class="form-control btn btn-success"
+                            id="h2">ADD</button>
+                    </form>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,1 +1,68 @@
-<p>batch works!</p>
+<div class="container">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <div class="row">
+        <div class="col-sm-2">
+        </div>
+        <!--  -->
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card bg-warning" id="div">
+                    <div class="container">
+                        <i class="fa fa-book fa-3x">
+                            <a class="nav-link" routerLink="batch21" routerLinkActive="router-link-active"> batch21 </a>
+                        </i>
+                        <h4><b>Duration</b></h4>
+                        <p>1 Oct 2019-31 Dec 2019</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card bg-info" id="div">
+                    <div class="container">
+                        <i class="fa fa-book fa-3x" aria-hidden="true">
+                            <a class="nav-link" routerLink="batch22" routerLinkActive="router-link-active">batch22</a>
+                        </i>
+                        <h4><b>Duration</b></h4>
+                        <p>1 Nav 2019-31 Jan 2019</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6" style="margin-top: 30px;">
+                <div class="card bg-success" id="div">
+                    <div class="container">
+                        <i class="fa fa-book fa-3x" style="size: 15px;" aria-hidden="true">
+                            <a class="nav-link" routerLink="batch23" routerLinkActive="router-link-active">batch23</a>
+                        </i>
+                        <h4><b>Duration</b></h4>
+                        <p>1 Dec 2019-31 Feb 2019</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card bg-secondary" id="div" style="margin-top: 30px;">
+                    <div class="container">
+                        <i class="fa fa-book fa-3x" aria-hidden="true">
+                            <a class="nav-link" routerLink="batch24" routerLinkActive="router-link-active">batch24</a>
+                        </i>
+                        <h4><b>Duration</b></h4>
+                        <p>1 Oct 2019-31 Dec 2019</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container text-center" style="margin-top: 15px; margin-top: 50px;">
+
+                <a class="nav-link" routerLink="addnewbatch" 
+                    routerLinkActive="router-link-active"    data-toggle="tooltip" data-placement="bottom"  data-toggle="modal" data-target="#myModal"
+                    title="Add New Batch!">
+                    <i class="fa fa-plus-circle fa-3x" aria-hidden="true">
+                    </i>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<router-outlet></router-outlet>
