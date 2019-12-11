@@ -1,0 +1,16 @@
+.icon-class {
+  cursor: pointer;
+}
+.batch-btn {
+  font-size: 20px;
+  font: 500;
+  font-family: "Times New Roman", Times, serif;
+  padding-left: 5px;
+  border-bottom: 1px solid blue;
+}
+.batch-class {
+  font-family: "Times New Roman", Times, serif;
+  font: bold;
+  border-bottom: 2px solid #000000;
+  font-size: 40px;
+}

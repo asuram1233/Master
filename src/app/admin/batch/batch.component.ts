@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { BatchDataService } from "src/app/batch-data.service";
 declare var $;
 @Component({
   selector: "app-batch",
@@ -7,6 +9,7 @@ declare var $;
 })
 export class BatchComponent implements OnInit {
   //instance
+
   batches: Object[] = [
     {
       batchName: "Batch 21",
@@ -28,11 +31,25 @@ export class BatchComponent implements OnInit {
     }
   ];
 
-  constructor() {}
+  constructor(private router: Router, private bs: BatchDataService) {}
 
   ngOnInit() {}
 
   batch(batchData) {
+    this.batches.push(batchData);
     $("#addBatchModal").modal("hide");
+  }
+
+  delete() {
+    this.batches.pop();
+  }
+
+  edit() {
+    $("#addBatchModal").modal("show");
+  }
+
+  routeToStudent(batchInfo) {
+    this.bs.getData(batchInfo);
+    this.router.navigate(["student_dashboard"]);
   }
 }

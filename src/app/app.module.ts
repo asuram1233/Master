@@ -13,6 +13,8 @@ import { FormsModule } from "@angular/forms";
 import { AdminRoutingModule } from "./admin/admin-routing.module";
 import { AdminModule } from "./admin/admin.module";
 import { AngularFontAwesomeModule } from "angular-font-awesome";
+import { StudentModule } from "./student/student.module";
+import { StudentRoutingModule } from "./student/student-routing.module";
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { AngularFontAwesomeModule } from "angular-font-awesome";
     FormsModule,
     AdminRoutingModule,
     AdminModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    StudentModule,
+    StudentRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
