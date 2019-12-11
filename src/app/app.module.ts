@@ -10,9 +10,9 @@ import { AboutComponent } from "./about/about.component";
 import { LoginComponent } from "./login/login.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { FormsModule } from "@angular/forms";
-import { InputTextModule } from "primeng/inputtext";
 import { AdminRoutingModule } from "./admin/admin-routing.module";
 import { AdminModule } from "./admin/admin.module";
+import { AngularFontAwesomeModule } from "angular-font-awesome";
 
 @NgModule({
   declarations: [
@@ -28,9 +28,9 @@ import { AdminModule } from "./admin/admin.module";
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    InputTextModule,
     AdminRoutingModule,
-    AdminModule
+    AdminModule,
+    AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

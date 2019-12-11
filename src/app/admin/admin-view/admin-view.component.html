@@ -1,16 +1,28 @@
 <div class="container-fluid" style="padding: 0;">
-  <nav class="navbar">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="batch">Batch</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="attendance">Attendance</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="view_all">View All</a>
-      </li>
-    </ul>
-  </nav>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="navbar-class">
+        <nav class="navbar">
+          <ul class="navbar-nav nav-navbar">
+            <li class="nav-item">
+              <div class="nav-link" routerLink="batch">
+                Batch
+              </div>
+            </li>
+            <li class="nav-item">
+              <div class="nav-link" routerLink="attendance">
+                Attendance
+              </div>
+            </li>
+            <li class="nav-item">
+              <div class="nav-link" routerLink="view_all">
+                View All
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="col-sm-8"><router-outlet></router-outlet></div>
+  </div>
 </div>
-<router-outlet></router-outlet>
