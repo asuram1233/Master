@@ -27,6 +27,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.14",
     "nodemon": "^2.0.1",
+    "path": "^0.12.7",
     "primeicons": "^2.0.0",
     "primeng": "^9.0.0-rc.2",
     "rxjs": "~6.4.0",

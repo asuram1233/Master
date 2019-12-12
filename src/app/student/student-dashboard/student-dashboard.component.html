@@ -17,11 +17,122 @@
   </div>
 </div>
 <div class="container">
-  <div class="modal" id="addStudentModal">
-    <div class="modal-dialog">
+  <div class="modal fade" id="addStudentModal">
+    <div
+      class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable"
+    >
       <div class="modal-content">
-        <div class="modal-body">Anirudh</div>
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">{{ batchObj.batchName }}</h4>
+          <div class="pull-right">
+            <span class="icon-class"
+              ><i class="fas fa-times-circle fa-2x" data-dismiss="modal"></i
+            ></span>
+          </div>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="studentDetails" (ngSubmit)="addStudent()">
+            <div class="form-group">
+              <label for="studentName">Student Name</label>
+              <input
+                type="text"
+                name="studentName"
+                id="studentName"
+                formControlName="studentName"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <label for="studentName">Student ID</label>
+              <input
+                type="text"
+                name="studentId"
+                id="studentId"
+                formControlName="studentId"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <label for="studentName">Student Contact</label>
+              <input
+                type="text"
+                name="studentContact"
+                id="studentContact"
+                formControlName="studentContact"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <label for="studentEmail">Student Email</label>
+              <input
+                type="email"
+                name="studentEmail"
+                id="studentEmail"
+                formControlName="studentEmail"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <label for="studentName">Guardian Name</label>
+              <input
+                type="text"
+                name="guardianName"
+                id="guardianName"
+                formControlName="guardianName"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <label for="studentName">Guardian Contact</label>
+              <input
+                type="text"
+                name="guardianContact"
+                id="guardianContact"
+                formControlName="guardianContact"
+                class="form-control"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary pull-right">
+              Save
+            </button>
+          </form>
+        </div>
       </div>
     </div>
+  </div>
+</div>
+<div class="container">
+  <div class="table-responsive-sm">
+    <table class="table table-hover table-stripped">
+      <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Contact</th>
+        <th>Email</th>
+        <th>Guardian Name</th>
+        <th>Guardian Contact</th>
+      </thead>
+      <tbody *ngFor="let item of student">
+        <tr>
+          <td>{{ item.studentId }}</td>
+          <td>{{ item.studentName }}</td>
+          <td>{{ item.studentContact }}</td>
+          <td>{{ item.studentEmail }}</td>
+          <td>{{ item.guardianName }}</td>
+          <td>{{ item.guardianContact }}</td>
+          <td>
+            <span class="text-primary pull-right slight-padding"
+              ><i class="fas fa-edit" (click)="edit()"></i>
+            </span>
+          </td>
+          <td>
+            <span class="text-danger pull-right slight-padding"
+              ><i class="fas fa-trash-alt" (click)="delete()"></i
+            ></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

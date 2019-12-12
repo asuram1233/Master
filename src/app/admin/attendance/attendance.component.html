@@ -1,1 +1,64 @@
-<p>attendance works!</p>
+<div class="container-fluid pt-3">
+  <div class="form-group">
+    <label for="batch">Choose Batch</label>
+    <select class="form-control" id="batch">
+      <option *ngFor="let item of batches">{{ item.batchName }}</option>
+    </select>
+  </div>
+</div>
+<div class="container pt-3">
+  <form #attendanceForm="ngForm" (ngSubmit)="attendance(attendanceForm.value)">
+    <table class="table table-stripped">
+      <thead>
+        <th>Student ID</th>
+        <th>Student Name</th>
+        <th>Date</th>
+        <th>Attendance</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of students">
+          <td class="pt-4">
+            {{ item.studentId }}
+          </td>
+          <td class="pt-4">
+            {{ item.studentName }}
+          </td>
+          <td class="pt-4">
+            <input type="date" name="date" ngModel />
+          </td>
+          <td>
+            <span
+              ><div class="form-check">
+                <label class="form-check-label">
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    name="attendance"
+                    value="present"
+                    ngModel
+                  />Present
+                </label>
+              </div></span
+            >
+            <span
+              ><div class="form-check">
+                <label class="form-check-label">
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    name="attendance"
+                    value="absent"
+                    ngModel
+                  />Absent
+                </label>
+              </div></span
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-center">
+      <button type="submit" class="btn btn-success">Save</button>
+    </div>
+  </form>
+</div>
