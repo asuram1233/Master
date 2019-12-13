@@ -1,0 +1,60 @@
+<!-- <p>add-new-student works!</p> -->
+
+<!--  -->
+<!-- The Modal -->
+<div class="modal" id="myModal12">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h1 class="text-center text-success" style="margin-top: px;">Add Student Data</h1>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="container-fluid ">
+          <form #fo="ngForm" (ngSubmit)="userObj(fo.value)">
+            <label for="fname" class="text-primary">Student_ID</label>
+            <input type="text" id="h1" name="studentid" placeholder="studentid" ngModel #ref5="ngModel" required
+              class="form-control">
+            <div *ngIf="ref5.invalid && (ref5.dirty||ref5.touched)" class="alert alert-danger">
+              <div *ngIf="ref5.errors?.required"> *this label is required</div>
+            </div>
+            <label for="fname" class="text-primary">Student Name</label>
+            <input type="text" id="h1" name="studentname" placeholder="studentName" ngModel #ref5="ngModel" required
+              class="form-control">
+            <div *ngIf="ref5.invalid && (ref5.dirty||ref5.touched)" class="alert alert-danger">
+              <div *ngIf="ref5.errors?.required"> *this label is required</div>
+            </div>
+            <label for="fname" class="text-primary">Contact Number</label>
+            <input type="text" id="h1" name="contact" placeholder="contact" ngModel #ref9="ngModel" required
+              class="form-control ">
+            <div *ngIf="ref9.invalid && (ref9.dirty||ref9.touched)" class="alert alert-danger">
+              <div *ngIf="ref9.errors?.required"> *this label is required</div>
+            </div>
+            <label for="fname" class="text-primary">Guardian Name</label>
+            <input type="text" id="h1" name="guardianname" placeholder="guardianname" ngModel #ref9="ngModel" required
+              class="form-control ">
+            <div *ngIf="ref9.invalid && (ref9.dirty||ref9.touched)" class="alert alert-danger">
+              <div *ngIf="ref9.errors?.required"> *this label is required</div>
+            </div>
+            <label for="fname" class="text-primary">Guardian Number</label>
+            <input type="text" id="h1" name="guardiannumber" placeholder="guardiannumber" pattern="^[6-9][0-9]{9}$"
+              ngModel #ref9="ngModel" required class="form-control ">
+            <div *ngIf="ref9.invalid && (ref9.dirty||ref9.touched)" class="alert alert-danger">
+              <div *ngIf="ref9.errors?.required"> *this label is required</div>
+              <div *ngIf="ref9.errors?.pattern" class="alert text-danger">*Number starts with 6 and 7 and 8 and 9 only
+              </div>
+            </div>
+            <label for="lname" class="text-secondary">Gender</label><br>
+            <input type="radio" id="h1" name="gender" placeholder="gender" ngModel #ref1="ngModel" required>Male
+            <input type="radio" id="h1" name="gender" placeholder="gender" ngModel #ref1="ngModel" value="female" required>Female
+            <input type="radio" id="h1" name="gender" placeholder="gender" ngModel #ref1="ngModel" value="Other" required>Other
+            <br>
+            <button type="submit" [disabled]="fo.invalid" class="form-control btn btn-success" id="h2">submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

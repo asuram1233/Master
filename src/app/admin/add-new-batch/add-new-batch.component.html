@@ -1,4 +1,4 @@
-<p>add-new-batch works!</p>
+<!-- <p>add-new-batch works!</p> -->
 <!--  -->
 <!-- The Modal -->
 <div class="modal" id="myModal">
@@ -7,7 +7,7 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h1 class="text-center text-success" style="margin-top: px;">New Batch</h1>
+                <h1 class="text-center text-success" style="margin-top: px;">Add New Batch</h1>
 
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
@@ -22,6 +22,13 @@
                         <div *ngIf="ref5.invalid && (ref5.dirty||ref5.touched)" class="alert alert-danger">
                             <div *ngIf="ref5.errors?.required"> *this label is required</div>
                         </div>
+                        <h2>Batch Duretion</h2>
+                    
+                        From <br>                                                           
+                        <input type="date" name="dob" value="dataofbirth" class="form-control"  ngModel> 
+                        To <br>
+                               <input type="date" class="form-control" name="dob" value="dataofbirth">
+
                         <!-- <label for="fname" class="text-primary">Last Name</label>
                         <input type="text" id="h1" name="LastName" placeholder="Last Name" ngModel #ref9="ngModel"
                             required class="form-control ">
@@ -29,10 +36,12 @@
                             <div *ngIf="ref9.errors?.required"> *this label is required</div>
                         </div> -->
 
-
-                        
-                        <button type="submit" [disabled]="fo.invalid" class="form-control btn btn-success"
-                            id="h2">ADD</button>
+<div class="text-center" style="margin-top: 10px;">
+  
+        <button type="submit" [disabled]="fo.invalid" class="form-control w-50 btn btn-success" 
+        id="h2">ADD</button>
+</div>
+                      
                     </form>
 
 

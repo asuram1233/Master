@@ -9,6 +9,7 @@ import { Batch22Component } from './batch22/batch22.component';
 import { Batch23Component } from './batch23/batch23.component';
 import { Batch24Component } from './batch24/batch24.component';
 import { AddNewBatchComponent } from './add-new-batch/add-new-batch.component';
+import { AddNewStudentComponent } from './add-new-student/add-new-student.component';
 
 const routes: Routes = [
   {
@@ -19,7 +20,13 @@ const routes: Routes = [
         path: "batch", component: BatchComponent,
 
         children: [
-          { path: "batch21", component: Batch21Component },
+          { 
+            path: "batch21", component: Batch21Component,
+            children:[{
+              path: "AddNewStudent", component:AddNewStudentComponent,
+
+            }]
+           },
           { path: "batch22", component: Batch22Component },
           { path: "batch23", component: Batch23Component },
           { path: "batch24", component: Batch24Component },

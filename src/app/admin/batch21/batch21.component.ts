@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-batch21',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Batch21Component implements OnInit {
 
-  constructor() { }
+  constructor(public router:Router) { }
 
   ngOnInit() {
+// this.router.navigate(["StudentDataB21"])
   }
+  
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+ declare    var $:any
 
 @Component({
   selector: 'app-add-new-batch',
@@ -12,6 +13,7 @@ export class AddNewBatchComponent implements OnInit {
   ngOnInit() {
   }
   userObj(userObj){
+    $("#myModal").modal("hide");
 
   }
 

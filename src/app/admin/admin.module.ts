@@ -13,10 +13,12 @@ import { Batch23Component } from './batch23/batch23.component';
 import { Batch24Component } from './batch24/batch24.component';
 import { AddNewBatchComponent } from './add-new-batch/add-new-batch.component';
 import { from } from 'rxjs';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { StudentDataB21Component } from './student-data-b21/student-data-b21.component';
+import { AddNewStudentComponent } from './add-new-student/add-new-student.component'
 
 @NgModule({
-  declarations: [AdminDashboardComponent, AdminViewComponent, BatchComponent, AttendanceComponent, ViewAllComponent, Batch21Component, Batch22Component, Batch23Component, Batch24Component, AddNewBatchComponent],
+  declarations: [AdminDashboardComponent, AdminViewComponent, BatchComponent, AttendanceComponent, ViewAllComponent, Batch21Component, Batch22Component, Batch23Component, Batch24Component, AddNewBatchComponent, StudentDataB21Component, AddNewStudentComponent],
   imports: [CommonModule, AdminRoutingModule,FormsModule,HttpClientModule]
 })
 export class AdminModule {}
