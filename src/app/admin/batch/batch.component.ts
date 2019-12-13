@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { BatchDataService } from "src/app/batch-data.service";
+import { HttpClient } from "@angular/common/http";
 declare var $;
 @Component({
   selector: "app-batch",
@@ -10,33 +11,29 @@ declare var $;
 export class BatchComponent implements OnInit {
   //instance
 
-  batches: Object[] = [
-    {
-      batchName: "Batch 21",
-      batchId: "b21",
-      startDate: "2 OCT 2019",
-      endDate: "31 DEC 2019"
-    },
-    {
-      batchName: "Batch 22",
-      batchId: "b22",
-      startDate: "2 OCT 2019",
-      endDate: "31 DEC 2019"
-    },
-    {
-      batchName: "Batch 23",
-      batchId: "b23",
-      startDate: "2 OCT 2019",
-      endDate: "31 DEC 2019"
-    }
-  ];
+  batches: Object[] = [];
 
-  constructor(private router: Router, private bs: BatchDataService) {}
+  constructor(
+    private router: Router,
+    private bs: BatchDataService,
+    private hc: HttpClient
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.hc.get("/admin/get_batches").subscribe(res => {
+      if (res["message"] == "data not found") {
+        alert(res["message"]);
+      } else {
+        this.batches = res["message"];
+      }
+    });
+  }
 
   batch(batchData) {
     this.batches.push(batchData);
+    this.hc.post("/admin/add_batch", batchData).subscribe(res => {
+      alert(res["message"]);
+    });
     $("#addBatchModal").modal("hide");
   }
 

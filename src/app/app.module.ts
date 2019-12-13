@@ -15,6 +15,7 @@ import { AdminModule } from "./admin/admin.module";
 import { AngularFontAwesomeModule } from "angular-font-awesome";
 import { StudentModule } from "./student/student.module";
 import { StudentRoutingModule } from "./student/student-routing.module";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { StudentRoutingModule } from "./student/student-routing.module";
     AdminModule,
     AngularFontAwesomeModule,
     StudentModule,
-    StudentRoutingModule
+    StudentRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

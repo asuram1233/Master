@@ -8,6 +8,7 @@ import { BatchComponent } from "./batch/batch.component";
 import { AttendanceComponent } from "./attendance/attendance.component";
 import { ViewAllComponent } from "./view-all/view-all.component";
 import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -17,6 +18,6 @@ import { FormsModule } from "@angular/forms";
     AttendanceComponent,
     ViewAllComponent
   ],
-  imports: [CommonModule, AdminRoutingModule, FormsModule]
+  imports: [CommonModule, AdminRoutingModule, FormsModule, HttpClientModule]
 })
 export class AdminModule {}
