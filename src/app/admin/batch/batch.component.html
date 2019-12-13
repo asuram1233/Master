@@ -29,10 +29,10 @@
               <div>
                 {{ item.batchName }}
                 <span class="text-danger pull-right slight-padding"
-                  ><i class="fas fa-trash-alt" (click)="delete()"></i
+                  ><i class="fas fa-trash-alt" (click)="delete(item)"></i
                 ></span>
                 <span class="text-primary pull-right slight-padding"
-                  ><i class="fas fa-edit" (click)="edit()"></i>
+                  ><i class="fas fa-edit" (click)="edit(item)"></i>
                 </span>
               </div>
               <label class="margin-zero">Duration :</label>
@@ -74,6 +74,7 @@
               id="batchId"
               class="form-control"
               ngModel
+              onfocus="this.value=''"
             />
           </div>
           <div class="form-group">
@@ -84,6 +85,7 @@
               id="batchName"
               class="form-control"
               ngModel
+              onfocus="this.value=''"
             />
           </div>
           <div class="form-group">
@@ -94,6 +96,7 @@
               id="startDate"
               class="form-control"
               ngModel
+              onfocus="this.value=''"
             />
           </div>
           <div class="form-group">
@@ -104,6 +107,7 @@
               id="endDate"
               class="form-control"
               ngModel
+              onfocus="this.value=''"
             />
           </div>
           <button type="submit" class="btn btn-primary pull-right">

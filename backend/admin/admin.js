@@ -64,5 +64,29 @@ adminApp.get("/get_batches", (request, response) => {
     });
 });
 
-//DELETE batch
+//delete batch DELETE request handler
+adminApp.delete("/delete_batch/:batchId", (request, response) => {
+  batch
+    .findOne({ batchId: request.params.batchId })
+    .exec()
+    .then(result => {
+      if (result === null) {
+        response.json({ message: `data cannot be deleted` });
+      } else {
+        batch
+          .deleteOne({ batchId: request.params.batchId })
+          .exec()
+          .then(() => {
+            response.json({ message: `batch deleted successfully` });
+          })
+          .catch(error => {
+            response.json({ message: `error while delete ${error}` });
+          });
+      }
+    })
+    .catch(error => {
+      response.json({ message: `Cannot Delete` });
+    });
+});
+
 module.exports = adminApp;

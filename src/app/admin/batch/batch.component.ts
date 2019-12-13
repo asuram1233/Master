@@ -12,7 +12,7 @@ export class BatchComponent implements OnInit {
   //instance
 
   batches: Object[] = [];
-
+  editBatch: Object;
   constructor(
     private router: Router,
     private bs: BatchDataService,
@@ -20,6 +20,9 @@ export class BatchComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.getBatches();
+  }
+  getBatches() {
     this.hc.get("/admin/get_batches").subscribe(res => {
       if (res["message"] == "data not found") {
         alert(res["message"]);
@@ -28,7 +31,6 @@ export class BatchComponent implements OnInit {
       }
     });
   }
-
   batch(batchData) {
     this.batches.push(batchData);
     this.hc.post("/admin/add_batch", batchData).subscribe(res => {
@@ -37,16 +39,22 @@ export class BatchComponent implements OnInit {
     $("#addBatchModal").modal("hide");
   }
 
-  delete() {
-    this.batches.pop();
+  delete(data) {
+    console.log(data);
+    this.hc.delete(`/admin/delete_batch/${data.batchId}`).subscribe(res => {
+      alert(res["message"]);
+      this.getBatches();
+    });
   }
 
-  edit() {
+  edit(data) {
     $("#addBatchModal").modal("show");
   }
 
   routeToStudent(batchInfo) {
     this.bs.getData(batchInfo);
+    localStorage.setItem("batchId", batchInfo.batchId);
+    localStorage.setItem("batchName", batchInfo.batchName);
     this.router.navigate(["student_dashboard"]);
   }
 }

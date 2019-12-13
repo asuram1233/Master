@@ -6,6 +6,8 @@ const path = require("path");
 const bodyParser = require("body-parser");
 //Import AdminApi
 const adminApi = require("./backend/admin/admin");
+//import addstudentApi
+const addstudentApi = require("./backend/admin/addStudent");
 //import Database connection
 const dbConnect = require("./backend/database/dbConnect");
 //import login Schema
@@ -22,6 +24,8 @@ app.use(exp.static(path.join(__dirname, "./dist/IMS-system")));
 app.use(bodyParser.json());
 //use adminApp
 app.use("/admin", adminApi);
+//use addstudentApi
+app.use("/student", addstudentApi);
 //assign port and listen
 const PORT = 3000;
 
