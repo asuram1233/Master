@@ -11,7 +11,7 @@ export class AttendanceComponent implements OnInit {
     { batchName: "Batch 22", batchId: "b22" },
     { batchName: "Batch 23", batchId: "b23" }
   ];
-  students: Object[] = [{ studentId: "SAB77", studentName: "Anirudh Suram" }];
+  students: Object[] = [{ studentId: "SCLSS1", studentName: "Bala" }];
   constructor() {}
 
   ngOnInit() {}

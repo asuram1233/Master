@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 //dbUrl for mongodb atlas connection
 
 const dbUrl =
-  "mongodb+srv://asuram:asuram@cluster0-nue8g.mongodb.net/imsDB?retryWrites=true&w=majority";
+  "mongodb+srv://vasukbkr:sivajI@123@cluster0-xrnqp.mongodb.net/balreddy?retryWrites=true&w=majority";
 
 //establish connection to db
 
@@ -24,3 +24,4 @@ connection.on("error", () => {
 });
 
 module.exports = connection;
+

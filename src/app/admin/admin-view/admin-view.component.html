@@ -1,11 +1,11 @@
-<div class="container-fluid" style="padding: 0;">
+<!-- <div class="container-fluid" style="padding: 0;">
   <div class="row">
     <div class="col-sm-4">
       <div class="navbar-class">
         <nav class="navbar">
           <ul class="navbar-nav nav-navbar">
             <li class="nav-item">
-              <div class="nav-link" routerLink="batch">
+              <div class="nav-link" >
                 Batch
               </div>
             </li>
@@ -23,6 +23,29 @@
         </nav>
       </div>
     </div>
-    <div class="col-sm-8"><router-outlet></router-outlet></div>
+   
   </div>
+</div> -->
+<!-- The sidebar -->
+<div class="sidebar">
+  <!-- <h4 class="h1">AdminDashboard</h4> -->
+  <a class="navbar-brand" >AdminDashboard</a>
+  <!-- class="active" -->
+  
+  <a routerLink="batch">
+    <i class="fa fa-home fa-lg" aria-hidden="true"> Batch</i>
+  </a>
+  <a  routerLink="attendance">
+
+    <i class="fa fa-sign-language fa-lg" aria-hidden="true"> Attendance</i>
+
+  </a>
+  <a  routerLink="view_all">
+    <i class="fa fa-users" aria-hidden="true">  View All</i></a>
 </div>
+
+<!-- Page content -->
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+

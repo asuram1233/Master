@@ -18,12 +18,12 @@ export class LoginComponent implements OnInit {
   login(data) {
     this.ls.login(data).subscribe(res => {
       if (res["message"] == "please enter valid credentials") {
-        alert(res["message"]);
+        // alert(res["message"]);
       } else if (res["message"] == "login is success") {
         localStorage.setItem("token", res["token"]);
         localStorage.setItem("username", res["username"]);
         localStorage.setItem("userroll", res["userroll"]);
-        alert(res["message"]);
+        // alert(res["message"]);
         if (res["userroll"] === "admin") {
           this.router.navigate(["admin_dashboard"]);
         } else if (res["userroll"] === "student") {

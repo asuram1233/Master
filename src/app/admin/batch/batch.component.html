@@ -1,120 +1,99 @@
-<div class="container-fluid pt-3">
-  <div class="text-left ">
-    <span class="icon-class" data-toggle="tooltip" title="Add New Batch"
-      ><i
-        class="fas fa-folder-plus fa-2x"
-        data-toggle="modal"
-        data-target="#addBatchModal"
-        ><span class="batch-btn">Add New Batch</span></i
-      ></span
-    >
-  </div>
-</div>
-<div class="container-fluid">
-  <div class="row">
-    <div class="column p-2" *ngFor="let item of batches">
-      <div class="card">
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="text-center m-2">
-              <i
-                class="fas fa-book fa-3x"
-                style="cursor: pointer;"
-                (click)="routeToStudent(item)"
-              ></i>
-            </div>
-          </div>
-          <div class="col-sm-8">
-            <div class="card-body padding-zero">
-              <div>
-                {{ item.batchName }}
-                <span class="text-danger pull-right slight-padding"
-                  ><i class="fas fa-trash-alt" (click)="delete(item)"></i
-                ></span>
-                <span class="text-primary pull-right slight-padding"
-                  ><i class="fas fa-edit" (click)="edit(item)"></i>
-                </span>
+<div class="row">
+  <!-- <div class="col-sm-2">
+
+  </div> -->
+  <!-- <div class="col-sm-10"> -->
+    <!-- <div style="text-align: center;"> -->
+
+    <div class="container-fluid pl-5">
+      <div class="text-left ">
+        <span class="icon-class" data-toggle="tooltip" title="Add New Batch"><i class="fas fa-folder-plus fa-2x"
+            data-toggle="modal" data-target="#addBatchModal"><span class="batch-btn">Add New Batch</span></i></span>
+      </div>
+    </div>
+  <!-- </div> -->
+
+    <div class="container-fluid">
+      <div class="row">
+       
+        <div class="column p-2" *ngFor="let item of batches">
+          <div class="card">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="text-center m-2">
+                  <i class="fas fa-book fa-3x" style="cursor: pointer;" (click)="routeToStudent(item)"></i>
+                </div>
               </div>
-              <label class="margin-zero">Duration :</label>
-              <div>
-                <font face="verdana" size="1"
-                  >{{ item.startDate | date }} - {{ item.endDate | date }}</font
-                >
+              <div class="col-sm-8">
+                <div class="card-body padding-zero">
+                  <div>
+                    {{ item.batchName }}
+                    <span class="text-danger pull-right slight-padding"><i class="fas fa-trash-alt"
+                        (click)="delete(item)"></i></span>
+                    <span class="text-primary pull-right slight-padding"><i class="fas fa-edit" (click)="edit(item)"></i>
+                    </span>
+                  </div>
+                  <label class="margin-zero">Duration :</label>
+                  <div>
+                    <font face="verdana" size="1">{{ item.startDate | date }} - {{ item.endDate | date }}</font>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        
       </div>
     </div>
-  </div>
-</div>
-
-<!-- The Modal -->
-<div class="modal fade" id="addBatchModal">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Add New Batch</h4>
-        <div class="pull-right">
-          <span class="icon-class"
-            ><i class="fas fa-times-circle fa-2x" data-dismiss="modal"></i
-          ></span>
+    
+    <!-- The Modal -->
+    <div class="modal fade" id="addBatchModal">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Add New Batch</h4>
+            <div class="pull-right">
+              <span class="icon-class"><i class="fas fa-times-circle fa-2x" data-dismiss="modal"></i></span>
+            </div>
+          </div>
+    
+          <!-- Modal body -->
+          <div class="modal-body">
+            <form #batchForm="ngForm" (ngSubmit)="batch(batchForm.value)">
+              <div class="form-group">
+                <label for="batchId">Batch ID</label>
+                <input type="text" name="batchId" id="batchId" class="form-control" ngModel onfocus="this.value=''" />
+              </div>
+              <div class="form-group">
+                <label for="batchName">Batch Name</label>
+                <input type="text" name="batchName" id="batchName" class="form-control" ngModel onfocus="this.value=''" />
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group" >
+                    <label for="startDate">Start Data</label>
+                    <input type="date" name="startDate" id="startDate" class="form-control" ngModel onfocus="this.value=''" />
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="endDate">End Data</label>
+                    <input type="date" name="endDate" id="endDate" class="form-control" ngModel onfocus="this.value=''" />
+                  </div>
+                </div>
+    
+              </div>
+             
+            
+              <button type="submit" class="btn btn-primary pull-right">
+                Save
+              </button>
+            </form>
+          </div>
         </div>
       </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        <form #batchForm="ngForm" (ngSubmit)="batch(batchForm.value)">
-          <div class="form-group">
-            <label for="batchId">Batch ID</label>
-            <input
-              type="text"
-              name="batchId"
-              id="batchId"
-              class="form-control"
-              ngModel
-              onfocus="this.value=''"
-            />
-          </div>
-          <div class="form-group">
-            <label for="batchName">Batch Name</label>
-            <input
-              type="text"
-              name="batchName"
-              id="batchName"
-              class="form-control"
-              ngModel
-              onfocus="this.value=''"
-            />
-          </div>
-          <div class="form-group">
-            <label for="startDate">Start Data</label>
-            <input
-              type="date"
-              name="startDate"
-              id="startDate"
-              class="form-control"
-              ngModel
-              onfocus="this.value=''"
-            />
-          </div>
-          <div class="form-group">
-            <label for="endDate">End Data</label>
-            <input
-              type="date"
-              name="endDate"
-              id="endDate"
-              class="form-control"
-              ngModel
-              onfocus="this.value=''"
-            />
-          </div>
-          <button type="submit" class="btn btn-primary pull-right">
-            Save
-          </button>
-        </form>
-      </div>
     </div>
-  </div>
+  <!-- </div> -->
+
 </div>

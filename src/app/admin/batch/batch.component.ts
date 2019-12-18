@@ -17,7 +17,7 @@ export class BatchComponent implements OnInit {
     private router: Router,
     private bs: BatchDataService,
     private hc: HttpClient
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getBatches();
@@ -25,7 +25,7 @@ export class BatchComponent implements OnInit {
   getBatches() {
     this.hc.get("/admin/get_batches").subscribe(res => {
       if (res["message"] == "data not found") {
-        alert(res["message"]);
+        // alert(res["message"]);
       } else {
         this.batches = res["message"];
       }
@@ -34,7 +34,7 @@ export class BatchComponent implements OnInit {
   batch(batchData) {
     this.batches.push(batchData);
     this.hc.post("/admin/add_batch", batchData).subscribe(res => {
-      alert(res["message"]);
+      // alert(res["message"]);
     });
     $("#addBatchModal").modal("hide");
   }
@@ -42,7 +42,7 @@ export class BatchComponent implements OnInit {
   delete(data) {
     console.log(data);
     this.hc.delete(`/admin/delete_batch/${data.batchId}`).subscribe(res => {
-      alert(res["message"]);
+      // alert(res["message"]);
       this.getBatches();
     });
   }
