@@ -26,4 +26,13 @@ export class LoginService {
       return false;
     }
   }
+
+  isDashboard() {
+    let userroll = localStorage.getItem("userroll");
+    if (userroll === "admin") {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

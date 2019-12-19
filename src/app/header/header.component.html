@@ -43,7 +43,7 @@
             class="nav-link"
             routerLink="admin_dashboard"
             routerLinkActive="router-link-active"
-            *ngIf="ls.isLoggedIn()"
+            *ngIf="ls.isLoggedIn() && ls.isDashboard()"
             >Dashboard</a
           >
         </li>
