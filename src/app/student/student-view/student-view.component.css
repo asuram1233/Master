@@ -1,0 +1,7 @@
+.container-class {
+  padding: 5px 0;
+  margin: 10px 0;
+  border: 8px solid #555555;
+  height: 100%;
+  width: 100%;
+}

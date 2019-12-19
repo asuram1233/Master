@@ -1,8 +1,14 @@
 <div class="container-fluid pt-3">
   <div class="form-group">
     <label for="batch">Choose Batch</label>
-    <select class="form-control" id="batch">
-      <option *ngFor="let item of batches">{{ item.batchName }}</option>
+    <select class="form-control" #batch (change)="onSelect(batch.value)">
+      <option>Select Batch</option>
+      <option
+        class="option"
+        *ngFor="let item of batches"
+        [value]="item.batchId"
+        >{{ item.batchName }}</option
+      >
     </select>
   </div>
 </div>
@@ -16,7 +22,7 @@
         <th>Attendance</th>
       </thead>
       <tbody>
-        <tr *ngFor="let item of students; let index = index">
+        <tr *ngFor="let item of studentObj; let index = index">
           <td class="pt-4">
             {{ item.studentId }}
           </td>
@@ -28,7 +34,7 @@
               type="text"
               name="date"
               style="border: none;"
-              [ngModel]="date"
+              [(ngModel)]="date"
             />
           </td>
           <td>

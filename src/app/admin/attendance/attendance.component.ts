@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { DatePipe } from "@angular/common";
+import { HttpClient } from "@angular/common/http";
+import { NgFlashMessageService } from "ng-flash-messages";
 
 @Component({
   selector: "app-attendance",
@@ -8,22 +10,59 @@ import { DatePipe } from "@angular/common";
 })
 export class AttendanceComponent implements OnInit {
   date = new Date().toDateString();
-  batches: Object[] = [
-    { batchName: "Batch 21", batchId: "b21" },
-    { batchName: "Batch 22", batchId: "b22" },
-    { batchName: "Batch 23", batchId: "b23" }
-  ];
-  students: Object[] = [
-    { studentId: "SAB77", studentName: "Anirudh Suram" },
-    { studentId: "RRG12", studentName: "Antman" }
-  ];
-  constructor(private datePipe: DatePipe) {}
+  studentObj: Object[];
+  batches: Object[] = [];
+
+  students: Object[] = [];
+  constructor(
+    private datePipe: DatePipe,
+    private hc: HttpClient,
+    private ngFlash: NgFlashMessageService
+  ) {}
 
   ngOnInit() {
     this.date = this.datePipe.transform(this.date, "MMM dd, yyyy");
+    this.getBatches();
+    this.getAllStudents();
+  }
+
+  //get batches
+  getBatches() {
+    this.hc.get("/admin/get_batches").subscribe(res => {
+      if (res["message"] == "data not found") {
+        this.ngFlash.showFlashMessage({
+          messages: [res["message"]],
+          type: "danger",
+          dismissible: true
+        });
+      } else {
+        this.batches = res["message"];
+      }
+    });
+  }
+
+  getAllStudents() {
+    this.hc.get("/attendance/getAll_students").subscribe(res => {
+      if (res["message"] === "Data Not Found") {
+        this.ngFlash.showFlashMessage({
+          messages: res["message"],
+          dismissible: true,
+          type: "info"
+        });
+      } else if (res["message"] !== null) {
+        this.students = res["message"];
+        console.log(this.students);
+      }
+    });
   }
 
   attendance(attendance) {
     console.log(attendance);
+  }
+
+  onSelect(data) {
+    this.studentObj = this.students.filter(element => {
+      return element["batchId"] == data;
+    });
   }
 }

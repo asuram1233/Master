@@ -6,6 +6,8 @@ const adminApp = exp.Router();
 const bodyParser = require("body-parser");
 //import batchSchema
 const batch = require("../database/Model/batchSchema");
+//import studentSchema
+const student = require("../database/Model/studentSchema");
 
 //use body-parser
 adminApp.use(bodyParser.json());
@@ -77,7 +79,16 @@ adminApp.delete("/delete_batch/:batchId", (request, response) => {
           .deleteOne({ batchId: request.params.batchId })
           .exec()
           .then(() => {
-            response.json({ message: `Batch deleted successfully` });
+            student
+              .deleteMany({ batchId: request.params.batchId })
+              .exec()
+              .then(() => {
+                response.json({ message: `Batch deleted successfully` });
+              })
+              .catch(error => {
+                console.log(error);
+              });
+            // response.json({ message: `Batch deleted successfully` });
           })
           .catch(error => {
             response.json({ message: `Error while delete ${error}` });

@@ -14,6 +14,8 @@ const dbConnect = require("./backend/database/dbConnect");
 const login = require("./backend/database/Model/loginSchema");
 //import jsonwebtoken
 const jwt = require("jsonwebtoken");
+//import attendanceApi
+const attendanceApi = require("./backend/admin/attendance");
 
 //use express functions
 const app = exp();
@@ -26,6 +28,8 @@ app.use(bodyParser.json());
 app.use("/admin", adminApi);
 //use addstudentApi
 app.use("/student", addstudentApi);
+//use attendanceApi
+app.use("/attendance", attendanceApi);
 //assign port and listen
 const PORT = 3000;
 

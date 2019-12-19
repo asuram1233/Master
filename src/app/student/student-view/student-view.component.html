@@ -1,1 +1,58 @@
-<p>student-view works!</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="container-class">
+        <div class="text-center">
+          <div>
+            <img
+              src="../../../assets/avatar.png"
+              alt=""
+              srcset=""
+              width="200px"
+            />
+          </div>
+          <div>
+            <button class="btn btn-primary" style="width: 100%;">
+              <i class="fas fa-pen-square fa-2x"></i
+              ><span style="padding-left: 10px;">Add Image</span>
+            </button>
+          </div>
+        </div>
+        <hr />
+        <div class="text-center p-1">
+          <div class="row">
+            <div class="col-sm-6">
+              <label>Name :</label>
+            </div>
+            <div class="col-sm-6">
+              <div class="pull-left">
+                {{ student.studentName }}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <label>ID :</label>
+            </div>
+            <div class="col-sm-6">
+              <div class="pull-left">
+                {{ student.studentId }}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <label>Student Contact :</label>
+            </div>
+            <div class="col-sm-6">
+              <div class="pull-left">
+                {{ student.studentContact }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">Anirudh</div>
+  </div>
+</div>
