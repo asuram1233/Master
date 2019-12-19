@@ -24,7 +24,12 @@
             {{ item.studentName }}
           </td>
           <td class="pt-4">
-            <input type="date" name="date" ngModel />
+            <input
+              type="text"
+              name="date"
+              style="border: none;"
+              [ngModel]="date"
+            />
           </td>
           <td>
             <span

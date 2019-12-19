@@ -16,22 +16,18 @@
       <div class="card">
         <div class="row">
           <div class="col-sm-4">
-            <div class="text-center m-2">
-              <i
-                class="fas fa-book fa-3x"
-                style="cursor: pointer;"
-                (click)="routeToStudent(item)"
-              ></i>
+            <div class="text-center m-2 icon-class">
+              <i class="fas fa-book fa-3x" (click)="routeToStudent(item)"></i>
             </div>
           </div>
           <div class="col-sm-8">
             <div class="card-body padding-zero">
               <div>
                 {{ item.batchName }}
-                <span class="text-danger pull-right slight-padding"
+                <span class="text-danger pull-right slight-padding icon-class"
                   ><i class="fas fa-trash-alt" (click)="delete(item)"></i
                 ></span>
-                <span class="text-primary pull-right slight-padding"
+                <span class="text-primary pull-right slight-padding icon-class"
                   ><i class="fas fa-edit" (click)="edit(item)"></i>
                 </span>
               </div>
@@ -95,7 +91,7 @@
               name="startDate"
               id="startDate"
               class="form-control"
-              ngModel
+              [(ngModel)]="startDate"
               onfocus="this.value=''"
             />
           </div>
@@ -118,3 +114,69 @@
     </div>
   </div>
 </div>
+
+<!-- Edit form Modal -->
+
+<div class="modal fade" data-toggle="modal" id="editBatchForm">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Batch</h4>
+        <div class="pull-right">
+          <span class="icon-class"
+            ><i class="fas fa-times-circle fa-2x" data-dismiss="modal"></i
+          ></span>
+        </div>
+      </div>
+      <div class="modal-body">
+        <form #form="ngForm" (ngSubmit)="updateBatch(form.value)">
+          <div class="form-group">
+            <label for="batchId">Batch ID</label>
+            <input
+              type="text"
+              name="batchId"
+              id="batchId"
+              class="form-control"
+              [(ngModel)]="editObj.batchId"
+              disabled
+            />
+          </div>
+          <div class="form-group">
+            <label for="batchName">Batch Name</label>
+            <input
+              type="text"
+              name="batchName"
+              id="batchName"
+              class="form-control"
+              [(ngModel)]="editObj.batchName"
+            />
+          </div>
+          <div class="form-group">
+            <label for="startDate">Start Data</label>
+            <input
+              type="date"
+              name="startDate"
+              id="startDate"
+              class="form-control"
+              [(ngModel)]="editObj.startDate"
+            />
+          </div>
+          <div class="form-group">
+            <label for="endDate">End Data</label>
+            <input
+              type="date"
+              name="endDate"
+              id="endDate"
+              class="form-control"
+              [(ngModel)]="editObj.endDate"
+            />
+          </div>
+          <button type="submit" class="btn btn-success pull-right">
+            update
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-flash-message></ng-flash-message>

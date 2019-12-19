@@ -5,7 +5,8 @@ import { StudentRoutingModule } from "./student-routing.module";
 import { StudentDashboardComponent } from "./student-dashboard/student-dashboard.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
-import { StudentViewComponent } from './student-view/student-view.component';
+import { StudentViewComponent } from "./student-view/student-view.component";
+import { NgFlashMessagesModule } from "ng-flash-messages";
 
 @NgModule({
   declarations: [StudentDashboardComponent, StudentViewComponent],
@@ -14,7 +15,8 @@ import { StudentViewComponent } from './student-view/student-view.component';
     StudentRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgFlashMessagesModule.forRoot()
   ]
 })
 export class StudentModule {}

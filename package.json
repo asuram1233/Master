@@ -26,6 +26,7 @@
     "font-awesome": "^4.7.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.14",
+    "ng-flash-messages": "^0.3.0",
     "nodemon": "^2.0.1",
     "path": "^0.12.7",
     "primeicons": "^2.0.0",

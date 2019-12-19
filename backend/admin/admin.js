@@ -33,7 +33,7 @@ adminApp.post("/add_batch", (request, response) => {
         batchDoc
           .save()
           .then(() => {
-            response.json({ message: `batch added successfully` });
+            response.json({ message: `Batch added successfully` });
           })
           .catch(error => {
             response.json({ message: `Error while insert ${error}` });
@@ -71,21 +71,66 @@ adminApp.delete("/delete_batch/:batchId", (request, response) => {
     .exec()
     .then(result => {
       if (result === null) {
-        response.json({ message: `data cannot be deleted` });
+        response.json({ message: `Data cannot be deleted` });
       } else {
         batch
           .deleteOne({ batchId: request.params.batchId })
           .exec()
           .then(() => {
-            response.json({ message: `batch deleted successfully` });
+            response.json({ message: `Batch deleted successfully` });
           })
           .catch(error => {
-            response.json({ message: `error while delete ${error}` });
+            response.json({ message: `Error while delete ${error}` });
           });
       }
     })
     .catch(error => {
       response.json({ message: `Cannot Delete` });
+    });
+});
+
+//update branch POST request handler
+
+adminApp.post("/update_batch", (request, response) => {
+  batch
+    .findOne({
+      $and: [
+        { batchId: request.body.batchId },
+        { batchName: request.body.batchName }
+      ]
+    })
+    .exec()
+    .then(result => {
+      if (result !== null) {
+        batch
+          .updateOne(
+            { batchId: request.body.batchId },
+            {
+              $set: {
+                batchName: request.body.batchName,
+                startDate: request.body.startDate,
+                endDate: request.body.endDate
+              }
+            }
+          )
+          .exec()
+          .then(() => {
+            response.json({
+              message: `Batch updated successfully`
+            });
+          })
+          .catch(error => {
+            response.json({ message: `Error while Update ${error}` });
+          });
+      } else {
+        response.json({
+          message: `Batch not found`
+        });
+      }
+    })
+    .catch(error => {
+      response.json({ message: `Error Cannot Update ${error}` });
+      console.log(error);
     });
 });
 

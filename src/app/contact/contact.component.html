@@ -1,1 +1,132 @@
-<p>contact works!</p>
+<div class="container m-3">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-4 text-center icon-class icon-whatsapp-class">
+            <a href="https://web.whatsapp.com/"
+              ><i class="fab fa-whatsapp fa-5x"></i>
+            </a>
+          </div>
+          <div class="col-sm-4 text-center icon-facebook-class icon-class">
+            <a href="https://www.facebook.com/"
+              ><i class="fab fa-facebook fa-5x"></i
+            ></a>
+          </div>
+          <div class="col-sm-2"></div>
+        </div>
+        <div class="row pt-4">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-4 text-center icon-class icon-twitter-class">
+            <a href="https://twitter.com/"
+              ><i class="fab fa-twitter-square fa-5x"></i
+            ></a>
+          </div>
+          <div class="col-sm-4 text-center icon-class icon-instagram-class">
+            <a href="https://www.instagram.com/">
+              <i class="fab fa-instagram fa-5x"></i>
+            </a>
+          </div>
+          <div class="col-sm-2"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="container-fluid">
+        <div class="text-center underline-class">
+          <div>
+            <label><h4 class="text-bold ">We Will Contact You</h4></label>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4 text-center">
+        <form #enquiryForm="ngForm" (ngSubmit)="enquiry(enquiryForm.value)">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Enter your Name"
+                  class="form-control"
+                  autocomplete="off"
+                  ngModel
+                />
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input
+                  type="tel"
+                  name="Phone"
+                  placeholder="Phone number"
+                  class="form-control"
+                  ngModel
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  class="form-control"
+                  autocomplete="off"
+                  ngModel
+                />
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div>
+                <button class="btn btn-info" type="submit" style="width: 100%;">
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <h1>Contact Us</h1>
+        <table>
+          <thead>
+            <th>Coordinator</th>
+            <th>Phone</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Mr. Satyamurthy</td>
+              <td>+919849722333</td>
+            </tr>
+            <tr>
+              <td>Mr. Kishor</td>
+              <td>+919849722333</td>
+            </tr>
+            <tr>
+              <td>Mr. Bhanu</td>
+              <td>+919849722333</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-sm-6">
+        <h1>Accreditation</h1>
+        <div class="row">
+          <div class="column" *ngFor="let item of imgUrls">
+            <img [src]="item.url" alt="" srcset="" width="150px" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

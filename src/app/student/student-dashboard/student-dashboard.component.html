@@ -1,6 +1,7 @@
 <div class="container-fluid pt-1">
   <div class="display-3 text-center ">
-    <h2 class="batch-class">{{ batchObj.batchName }}</h2>
+    <!-- <h2 class="batch-class">{{ batchObj.batchName }}</h2> -->
+    <h2 class="batch-class">{{ batchDetails.batchName }}</h2>
   </div>
 </div>
 <div class="container">
@@ -16,6 +17,7 @@
     </div>
   </div>
 </div>
+<!-- Add Student Modal -->
 <div class="container">
   <div class="modal fade" id="addStudentModal">
     <div
@@ -24,7 +26,7 @@
       <div class="modal-content">
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">{{ batchObj.batchName }}</h4>
+          <h4 class="modal-title">Add Student</h4>
           <div class="pull-right">
             <span class="icon-class"
               ><i class="fas fa-times-circle fa-2x" data-dismiss="modal"></i
@@ -102,6 +104,8 @@
     </div>
   </div>
 </div>
+
+<!-- Student Table -->
 <div class="container">
   <div class="table-responsive-sm">
     <table class="table table-hover table-stripped">
@@ -123,7 +127,7 @@
           <td>{{ item.guardianContact }}</td>
           <td>
             <span class="text-primary pull-right slight-padding"
-              ><i class="fas fa-edit" (click)="edit()"></i>
+              ><i class="fas fa-edit" (click)="edit(item)"></i>
             </span>
           </td>
           <td>
@@ -136,3 +140,101 @@
     </table>
   </div>
 </div>
+
+<!-- Edit student Modal -->
+<div class=" container">
+  <div class="modal fade" id="editStudentModal">
+    <div
+      class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable"
+    >
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Edit Student</h4>
+          <div class="pull-right">
+            <span class="icon-class"
+              ><i class="fas fa-times-circle fa-2x" data-dismiss="modal"></i
+            ></span>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <form
+              #editStudent="ngForm"
+              (ngSubmit)="updateStudent(editStudent.value)"
+            >
+              <div class="form-group">
+                <!-- <label for="studentId">Student Id</label> -->
+                <input
+                  type="text"
+                  name="studentId"
+                  id="studentId"
+                  class="form-control disabled-class"
+                  [(ngModel)]="editStudentObj.studentId"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="studentName">Student Name</label>
+                <input
+                  type="text"
+                  name="studentName"
+                  id="studentName"
+                  class="form-control"
+                  [(ngModel)]="editStudentObj.studentName"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="studentContact">Student Contact</label>
+                <input
+                  type="text"
+                  name="studentContact"
+                  id="studentContact"
+                  class="form-control"
+                  [(ngModel)]="editStudentObj.studentContact"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="studentEmail">Student Email</label>
+                <input
+                  type="text"
+                  name="studentEmail"
+                  id="studentEmail"
+                  class="form-control"
+                  [(ngModel)]="editStudentObj.studentEmail"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="guardianName">Guardian Name</label>
+                <input
+                  type="text"
+                  name="guardianName"
+                  id="guardianName"
+                  class="form-control"
+                  [(ngModel)]="editStudentObj.guardianName"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="guardianContact">Guardian Contact</label>
+                <input
+                  type="text"
+                  name="guardianContact"
+                  id="guardianContact"
+                  class="form-control"
+                  [(ngModel)]="editStudentObj.guardianContact"
+                />
+              </div>
+              <div class="pull-right">
+                <button type="submit" class="btn btn-success">Update</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-flash-message></ng-flash-message>

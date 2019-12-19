@@ -12,8 +12,7 @@ div.container-fluid {
   margin: 0;
 }
 .icon-class {
-  cursor: pointer;
-  font: caption;
+  cursor: pointer !important;
 }
 .batch-btn {
   font-size: 20px;

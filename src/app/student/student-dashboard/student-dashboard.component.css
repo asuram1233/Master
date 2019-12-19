@@ -18,3 +18,11 @@
   padding: 2px;
   cursor: pointer;
 }
+.icon-class {
+  cursor: pointer;
+}
+.disabled-class {
+  cursor: none;
+  display: none;
+  visibility: hidden;
+}

@@ -16,6 +16,7 @@ import { AngularFontAwesomeModule } from "angular-font-awesome";
 import { StudentModule } from "./student/student.module";
 import { StudentRoutingModule } from "./student/student-routing.module";
 import { HttpClientModule } from "@angular/common/http";
+import { NgFlashMessagesModule } from "ng-flash-messages";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { HttpClientModule } from "@angular/common/http";
     AngularFontAwesomeModule,
     StudentModule,
     StudentRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgFlashMessagesModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

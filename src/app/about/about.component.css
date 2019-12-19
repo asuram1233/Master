@@ -1,0 +1,11 @@
+.font-class p {
+  font-family: "Times New Roman", Times, serif;
+  font: italic;
+  font-weight: bold;
+  font-size: x-large;
+}
+.display-class {
+  font-family: "Times New Roman", Times, serif;
+  font: larger;
+  font-size: larger;
+}

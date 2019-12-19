@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { LoginService } from "../login.service";
+import { NgFlashMessageService } from "ng-flash-messages";
 
 @Component({
   selector: "app-login",
@@ -8,7 +9,11 @@ import { LoginService } from "../login.service";
   styleUrls: ["./login.component.css"]
 })
 export class LoginComponent implements OnInit {
-  constructor(private router: Router, private ls: LoginService) {}
+  constructor(
+    private router: Router,
+    private ls: LoginService,
+    private ngFlash: NgFlashMessageService
+  ) {}
 
   ngOnInit() {
     setTimeout(() => {
@@ -18,12 +23,20 @@ export class LoginComponent implements OnInit {
   login(data) {
     this.ls.login(data).subscribe(res => {
       if (res["message"] == "please enter valid credentials") {
-        alert(res["message"]);
+        this.ngFlash.showFlashMessage({
+          messages: [res["message"]],
+          type: "danger",
+          dismissible: true
+        });
       } else if (res["message"] == "login is success") {
         localStorage.setItem("token", res["token"]);
         localStorage.setItem("username", res["username"]);
         localStorage.setItem("userroll", res["userroll"]);
-        alert(res["message"]);
+        this.ngFlash.showFlashMessage({
+          messages: [res["message"]],
+          dismissible: true,
+          type: "success"
+        });
         if (res["userroll"] === "admin") {
           this.router.navigate(["admin_dashboard"]);
         } else if (res["userroll"] === "student") {

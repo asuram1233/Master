@@ -1,0 +1,32 @@
+table thead th {
+  margin: auto;
+  padding: 10px;
+}
+table tbody td {
+  margin: auto;
+  padding: 10px;
+}
+.icon-class {
+  cursor: pointer;
+}
+.underline-class {
+  border-bottom: 2px solid #000000;
+}
+.margin-class {
+  margin: 10px 40px;
+}
+.icon-whatsapp-class a {
+  color: #4fce5d !important;
+}
+
+.icon-facebook-class a {
+  color: #3b5998 !important;
+}
+
+.icon-twitter-class a {
+  color: #00acee !important;
+}
+
+.icon-instagram-class a {
+  color: #3f729b !important;
+}
