@@ -57,6 +57,11 @@ export class AttendanceComponent implements OnInit {
 
   attendance(...attendance) {
     console.log(attendance);
+    this.ngFlash.showFlashMessage({
+      messages: ["Attendance Saved Successfully"],
+      dismissible: true,
+      type: "success"
+    });
   }
 
   onSelect(data) {

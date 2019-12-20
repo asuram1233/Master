@@ -1,5 +1,5 @@
 .navbar-class {
-  border: 2px solid #000000;
+  border-right: 2px solid #000000;
   background: #fff;
   min-height: 100% !important;
 }
@@ -18,4 +18,11 @@ li {
 div.nav-link:focus {
   border: outset;
   outline: 0;
+}
+
+ul li {
+  background: #e4e4e4;
+  border-bottom: 1px solid #9f9f9f;
+  width: 100%;
+  padding: 5px !important;
 }
