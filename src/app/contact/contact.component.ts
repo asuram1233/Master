@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { NgFlashMessageService } from "ng-flash-messages";
 
 @Component({
   selector: "app-contact",
@@ -15,11 +17,25 @@ export class ContactComponent implements OnInit {
     { url: "../../assets/certificate-6.jpg" }
   ];
 
-  constructor() {}
+  constructor(private hc: HttpClient, private ngFlash: NgFlashMessageService) {}
 
   ngOnInit() {}
 
   enquiry(data) {
-    console.log(data);
+    this.hc.post("/admin/contact", data).subscribe(res => {
+      if (res["message"] === "We will contact you soon") {
+        this.ngFlash.showFlashMessage({
+          messages: [res["message"]],
+          type: "success",
+          dismissible: true
+        });
+      } else {
+        this.ngFlash.showFlashMessage({
+          messages: [res["message"]],
+          type: "danger",
+          dismissible: true
+        });
+      }
+    });
   }
 }

@@ -8,11 +8,30 @@ const bodyParser = require("body-parser");
 const batch = require("../database/Model/batchSchema");
 //import studentSchema
 const student = require("../database/Model/studentSchema");
+//import
+const contact_us = require("../database/Model/userSchema");
 
 //use body-parser
 adminApp.use(bodyParser.json());
 
 //request handler
+
+//request handler from contact page
+adminApp.post("/contact", (request, response) => {
+  let userObj = new contact_us({
+    name: request.body.name,
+    phone: request.body.phone,
+    email: request.body.email
+  });
+  userObj
+    .save()
+    .then(() => {
+      response.json({ message: `We will contact you soon` });
+    })
+    .catch(error => {
+      response.json({ message: `Cannot read your details` });
+    });
+});
 
 // add batch POST request handler.
 adminApp.post("/add_batch", (request, response) => {
@@ -102,7 +121,7 @@ adminApp.delete("/delete_batch/:batchId", (request, response) => {
 
 //update branch POST request handler
 
-adminApp.post("/update_batch", (request, response) => {
+adminApp.put("/update_batch", (request, response) => {
   batch
     .findOne({
       $and: [

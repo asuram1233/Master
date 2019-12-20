@@ -27,7 +27,14 @@
             {{ item.studentId }}
           </td>
           <td class="pt-4">
-            {{ item.studentName }}
+            <input
+              type="text"
+              name="studentName+{{ index + 1 }}"
+              id=""
+              [ngModel]="item.studentName"
+              style="border: none;"
+            />
+            <!-- {{ item.studentName }} -->
           </td>
           <td class="pt-4">
             <input

@@ -51,12 +51,11 @@ export class AttendanceComponent implements OnInit {
         });
       } else if (res["message"] !== null) {
         this.students = res["message"];
-        console.log(this.students);
       }
     });
   }
 
-  attendance(attendance) {
+  attendance(...attendance) {
     console.log(attendance);
   }
 

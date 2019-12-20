@@ -98,7 +98,7 @@ export class BatchComponent implements OnInit {
   }
 
   updateBatch(updateData) {
-    this.hc.post("admin/update_batch", updateData).subscribe(res => {
+    this.hc.put("admin/update_batch", updateData).subscribe(res => {
       if (res["message"] === "Batch updated successfully") {
         this.ngFlash.showFlashMessage({
           messages: [res["message"]],

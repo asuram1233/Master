@@ -13,8 +13,8 @@
           </div>
           <div>
             <button class="btn btn-primary" style="width: 100%;">
-              <i class="fas fa-pen-square fa-2x"></i
-              ><span style="padding-left: 10px;">Add Image</span>
+              <i class="fas fa-camera-retro"></i>
+              <span style="padding-left: 10px;">Add Image</span>
             </button>
           </div>
         </div>
@@ -50,9 +50,124 @@
               </div>
             </div>
           </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <label>Student Email :</label>
+            </div>
+            <div class="col-sm-6">
+              <div class="pull-left">
+                {{ student.studentEmail }}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-sm-6">Anirudh</div>
+    <div class="col-sm-6">
+      <div class="container-class-accr">
+        <div class="container">
+          <div
+            class="panel-group"
+            id="accordion"
+            role="tablist"
+            aria-multiselectable="true"
+          >
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                  <a
+                    role="button"
+                    data-toggle="collapse"
+                    data-parent="#accordion"
+                    href="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                    Attendance
+                  </a>
+                </h4>
+              </div>
+              <div
+                id="collapseOne"
+                class="panel-collapse collapse in"
+                role="tabpanel"
+                aria-labelledby="headingOne"
+              >
+                <div class="panel-body" style="height: 200px;">
+                  <div class="row" style="padding-top: 50px;">
+                    <div class="col-sm-6">
+                      <div class="text-center" style="margin: 0 10px;">
+                        <i class="fas fa-file-pdf fa-5x"></i>
+                        <div>Weekly Report</div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="text-center" style="margin: 0 10px;">
+                        <i class="fas fa-file-pdf fa-5x"></i>
+                        <div>Monthly Report</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingTwo">
+                <h4 class="panel-title">
+                  <a
+                    class="collapsed"
+                    role="button"
+                    data-toggle="collapse"
+                    data-parent="#accordion"
+                    href="#collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="collapseTwo"
+                  >
+                    Marks
+                  </a>
+                </h4>
+              </div>
+              <div
+                id="collapseTwo"
+                class="panel-collapse collapse"
+                role="tabpanel"
+                aria-labelledby="headingTwo"
+              >
+                <div class="panel-body">
+                  you Scored 100
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingThree">
+                <h4 class="panel-title">
+                  <a
+                    class="collapsed"
+                    role="button"
+                    data-toggle="collapse"
+                    data-parent="#accordion"
+                    href="#collapseThree"
+                    aria-expanded="false"
+                    aria-controls="collapseThree"
+                  >
+                    Remarks
+                  </a>
+                </h4>
+              </div>
+              <div
+                id="collapseThree"
+                class="panel-collapse collapse"
+                role="tabpanel"
+                aria-labelledby="headingThree"
+              >
+                <div class="panel-body">
+                  This week you did good..!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
